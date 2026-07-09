@@ -1,12 +1,15 @@
 <?php
 
-$host = getenv("MYSQLHOST");
-$user = getenv("MYSQLUSER");
-$pass = getenv("MYSQLPASSWORD");
-$db   = getenv("MYSQLDATABASE");
-$port = getenv("MYSQLPORT");
+<?php
+$host     = getenv('MYSQLHOST')     ?: 'localhost';
+$port     = getenv('MYSQLPORT')     ?: '3306';
+$dbname   = getenv('MYSQLDATABASE') ?: 'mydb';
+$user     = getenv('MYSQLUSER')     ?: 'root';
+$password = getenv('MYSQLPASSWORD') ?: '';
 
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
+$pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $password);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?>
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
