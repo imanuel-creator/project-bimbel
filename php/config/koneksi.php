@@ -1,6 +1,5 @@
 <?php
 
-<?php
 $host     = getenv('MYSQLHOST')     ?: 'localhost';
 $port     = getenv('MYSQLPORT')     ?: '3306';
 $dbname   = getenv('MYSQLDATABASE') ?: 'db_bimbingan_belajar';
